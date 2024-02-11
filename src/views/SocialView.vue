@@ -1,7 +1,8 @@
 <template>
+  <title> Luke / Socials </title>
 
 <div class=" mx-auto my-auto PWC">
-    <img class="rounded-full HWI MainImage" src="https://i.ibb.co/5Fgq1jj/flat.png">
+    <img class="rounded-full HWI MainImage" src="https://i.ibb.co/3vTgJBK/flat.webp">
     <div class="PW">📱</div>
   </div>
 

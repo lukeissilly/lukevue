@@ -1,7 +1,8 @@
 <template>
+  <title> Luke / About </title>
 
   <div class=" mx-auto my-auto HWC">
-    <img class="rounded-full HWI MainImage" src="https://i.ibb.co/5Fgq1jj/flat.png">
+    <img class="rounded-full HWI MainImage" src="https://i.ibb.co/3vTgJBK/flat.webp">
     <div class="HW">👋</div>
   </div>
 
