@@ -1,0 +1,84 @@
+.YouTube {background-color: #FF0000;}
+.YouTube:hover {background-color: #bd0000;}
+
+.Twitter {background-color: #1D9BF0;}
+.Twitter:hover {background-color: #1672af;}
+
+.Discord {background-color: #5865F2;}
+.Discord:hover {background-color: #454fbe;}
+
+.Spotify {background-color: #1ED760;}
+.Spotify:hover {background-color: #19ad4d;}
+
+.Bluesky {background-color: #0C7CFF;}
+.Bluesky:hover {background-color: #0963c9;}
+
+.Github {background-color: #1B1F23;}
+.Github:hover {background-color: #15181b;}
+
+.MainImage {
+    width: 200px;
+    height: 200px;
+}
+
+.HWC {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+  
+.HW {
+    position: absolute;
+    top: 70%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    transform-origin: 100% 100%;
+    font-size: 48px;
+    animation: wave 0.5s infinite linear;
+}
+  
+@keyframes wave {
+    0% {
+      transform: translate(-50%, -50%) rotate(-30deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(30deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-30deg);
+      }
+}
+
+.PWC {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+  
+.PW {
+    position: absolute;
+    top: 65%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    transform-origin: 50% 80%;
+    font-size: 48px;
+    animation: pwave 0.8s infinite linear;
+}
+  
+@keyframes pwave {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    25% {
+      transform: translate(-50%, -50%) rotate(15deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    75% {
+      transform: translate(-50%, -50%) rotate(-15deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
