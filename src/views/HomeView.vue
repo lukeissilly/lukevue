@@ -2,13 +2,17 @@
 <title> Luke / Home </title>
 <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0XBwd2H/pfp.gif">
 
-<div class="All">
+    <div class="All relative">
+      
+      <img id="gif2" class="MainImage mx-auto rounded-full z-0" src="https://i.ibb.co/0XBwd2H/pfp.gif">
+      <img id="gif1" class="MPOS ml-auto mr-auto mb-auto absolute inset-0 z-10 pointer-events-none" src="https://i.ibb.co/FHfwpJC/a.gif">
 
-  <img class="MainImage mx-auto my-auto rounded-full" src="https://i.ibb.co/0XBwd2H/pfp.gif">
-  <h1 class="mt-2 text-6xl text-white-900"><b> Luke </b> </h1>
-  <p class="-mt-2 text-2xl text-gray-500"> <i> he/him </i> </p>
-  <p class="mt-5 text-6xl text-white"> I do dumb shit </p>
+      <h1 class="mt-2 text-6xl text-white"><b> Luke </b> </h1>
+      <p class="-mt-2 text-2xl text-gray-500"> <i> he/him </i> </p>
+      <p class="mt-5 text-6xl text-white"> I do dumb shit </p>
 
-</div>
+    </div>
 
 </template>
+
+<script src="./scripts/load.js"></script>

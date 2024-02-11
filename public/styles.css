@@ -83,6 +83,37 @@
     }
   }
 
+.MPOS {
+  position: absolute;
+  top: 30px;
+  left: 400px;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.FMBG {
+  background-image: url('https://i.ibb.co/RBhT2J9/transparent.png');
+  background-position: center calc(0px - 160px);
+}
+
+.CATBG {
+  background-image: url('https://i.ibb.co/LS8ydjX/23-07-30-20-31-08-6309.webp');
+  background-position: center calc(0px - 70px);
+}
+
+.AIBG {
+  background-image: url('https://i.ibb.co/Sfdfmtj/7f7f2882899755a705a2953b6fcfc263-1.gif');
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.text-shadow-black {
+  text-shadow: 2px 2px black;
+}
+
 @media (max-width: 720px) {
     .All {
         transform: scale(0.65);
