@@ -12,7 +12,7 @@
   <h1 class="mt-2 text-6xl text-white-900"><b> Hi! </b> </h1>
   <p class="mt-5 text-6xl text-white"> my name is <b> Luke </b> </p>
   <p class="text-5xl text-white"> I am <b> 17 </b> years old </p>
-  <p class="text-5xl text-white"> and <b> Australian </b> too </p>
+  <p class="text-5xl text-white"> I'm <b> Australian </b> too </p>
   <p class="mt-3 text-6xl text-white"> and I love doing really <b> stupid shit </b> </p>
   <p class="-mt-1 text-6xl text-white"> <i> like: </i> </p>
 
