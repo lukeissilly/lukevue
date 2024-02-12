@@ -139,6 +139,21 @@
       transform: scale(0.65);
   }
 
+  .Home {
+    transform: scale(0.65);
+    top: -200px;
+  }
+
+  .About {
+  transform: scale(0.65);
+  top: -200px;
+  }
+
+  .Socials {
+  transform: scale(0.65);
+  top: -99px;
+  }
+
   .MPOS {
     left: 310px;
   }

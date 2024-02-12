@@ -2,7 +2,7 @@
 <title> Luke / Socials </title>
 <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0XBwd2H/pfp.gif">
 
-<div class="All">
+<div class="All Socials relative">
 
   <div class=" mx-auto my-auto PWC">
     <img class="rounded-full HWI MainImage" src="https://i.ibb.co/3vTgJBK/flat.webp">

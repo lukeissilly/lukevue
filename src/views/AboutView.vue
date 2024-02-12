@@ -2,7 +2,7 @@
 <title> Luke / About </title>
 <link rel="icon" type="image/x-icon" href="https://i.ibb.co/0XBwd2H/pfp.gif">
 
-<div class="All">
+<div class="All About relative">
 
   <div class=" mx-auto HWC">
     <img class="rounded-full HWI MainImage" src="https://i.ibb.co/3vTgJBK/flat.webp">
