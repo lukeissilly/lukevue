@@ -41,6 +41,12 @@
       Making a REALLY bad Pepsi mod for Minecraft!
     </a>
   </div>
+  
+  <div class="mt-5 flex gap-4 justify-center">
+    <a href="https://number.luke.tf/" target="_blank" class="NGBG bg-cover text-white font-bold py-5 px-8 rounded-lg text-shadow-black border border-white">
+      Making number guessing website!
+    </a>
+  </div>
 
 </div>
 

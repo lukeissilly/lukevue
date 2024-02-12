@@ -126,6 +126,11 @@
   background-position: center calc(0px - 180px);
 }
 
+.NGBG {
+  background-image: url('https://i.ibb.co/cC4rFgJ/Capture.png');
+  background-position: center calc(0px - 110px);
+}
+
 .bg-cover {
   background-size: cover;
 }
