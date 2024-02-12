@@ -37,7 +37,7 @@
   </div>
 
   <div class="mt-5 flex gap-4 justify-center">
-    <a href="https://ai.luke.tf" target="_blank" class="PPBG bg-cover text-white font-bold py-5 px-8 rounded-lg text-shadow-black border border-white">
+    <a href="https://github.com/lukeisuh/Shitty-Pepsi-Mod" target="_blank" class="PPBG bg-cover text-white font-bold py-5 px-8 rounded-lg text-shadow-black border border-white">
       Making a REALLY bad Pepsi mod for Minecraft!
     </a>
   </div>
