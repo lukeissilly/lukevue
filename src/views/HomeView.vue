@@ -11,6 +11,11 @@
       <p class="-mt-2 text-2xl text-gray-500"> <i> he/him </i> </p>
       <p class="mt-5 text-6xl text-white"> I do dumb shit </p>
 
+    <div class="CS">
+      <p class="mt-20 text-3xl text-white"> this page is really empty so heres a cat on a skateboard :) </p>
+      <img class="mt-5 mx-auto" src="https://i.ibb.co/fCVNrQj/aaaa.gif">
+    </div>
+
     </div>
 
 </template>
