@@ -131,6 +131,11 @@
   background-position: center calc(0px - 110px);
 }
 
+.NBG {
+  background-image: url('https://i.ibb.co/BgRDw8K/Capture.png');
+  background-position: center calc(0px - 110px);
+}
+
 .bg-cover {
   background-size: cover;
 }

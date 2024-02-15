@@ -48,6 +48,12 @@
     </a>
   </div>
 
+  <div class="mt-5 flex gap-4 justify-center">
+    <a href="https://nothing.luke.tf/" target="_blank" class="NBG bg-cover text-white font-bold py-5 px-8 rounded-lg text-shadow-black border border-white">
+      Making a site about nothing!
+    </a>
+  </div>
+
 </div>
 
 </template>
