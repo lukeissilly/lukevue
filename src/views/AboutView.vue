@@ -11,21 +11,20 @@
 
   <h1 class="mt-2 text-6xl text-white-900"><b> Hi! </b> </h1>
   <p class="mt-5 text-6xl text-white"> My name is <b> Luke </b> </p>
-  <p class="text-4xl text-white"> I am a <b> 17 </b> year old <b> Australian </b> <br>
-    whos hoping to get more into web development</p>
-  <p class="-mt-2 text-1xl text-white"> <i> and maybe <b> cyber security </b> because that pays a lot <br> </i> </p>
-  <p class="-mt-2 text-1xl text-white"> <i> or maybe <b> pc building </b> because thats fun </i> </p>
-  <p class="mt-5 text-6xl text-white"> and I love doing really <b> stupid shit </b> </p>
+  <p class="text-4xl text-white"> I am an <b> 18 </b> year old <b> Australian </b> <br>
+    who is for whatever reason, really good with computers</p>
+  <p class="-mt-2 text-1xl text-white"> <i> for the most part <br> </i> </p>
+  <p class="mt-5 text-6xl text-white"> and I love doing really <b> stupid things </b> </p>
   <p class="-mt-1 text-6xl text-white"> <i> like: </i> </p>
 
   <div class="mt-6 flex gap-4 justify-center">
-    <a href="https://ai.luke.tf" target="_blank" class="FMBG bg-cover text-white font-bold py-5 px-8 rounded-lg text-shadow-black border border-white">
-      Making a femboy fediverse instance!
+    <a href="https://imsilly.fyi" target="_blank" class="FMBG bg-cover text-white font-bold py-5 px-8 rounded-lg text-shadow-black border border-white">
+      Making a silly fediverse instance!
     </a>
   </div>
 
   <div class="mt-5 flex gap-4 justify-center">
-    <a href="https://catboys.site" target="_blank" class="CATBG bg-cover text-white font-bold py-5 px-8 rounded-lg text-shadow-black border border-white">
+    <a href="https://cat.luke.tf" target="_blank" class="CATBG bg-cover text-white font-bold py-5 px-8 rounded-lg text-shadow-black border border-white">
       Making a site for random cat pictures!
     </a>
   </div>
