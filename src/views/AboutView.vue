@@ -101,6 +101,30 @@ const projects = [
   }
 }
 
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .about-container {
   min-height: 100vh;
   padding: 6rem 2rem 4rem;
@@ -131,7 +155,8 @@ h1 {
   padding: 2rem;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform, box-shadow;
   border: 1px solid rgba(255, 255, 255, 0.1);
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
@@ -145,8 +170,12 @@ h1 {
   &:nth-child(7) { animation-delay: 0.9s; }
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+  }
+  
+  &:active {
+    transform: scale(0.98);
   }
 }
 
@@ -181,10 +210,11 @@ h1 {
   padding: 0.4rem 0.8rem;
   border-radius: 2rem;
   font-size: 0.875rem;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease;
+  cursor: default;
   
   &:hover {
-    background: rgba(0, 255, 157, 0.2);
+    transform: scale(1.05);
   }
 }
 
@@ -192,7 +222,23 @@ h1 {
   display: flex;
   gap: 1rem;
   a {
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--accent);
+      transition: width 0.2s ease;
+    }
+    
+    &:hover::after {
+      width: 100%;
+    }
     
     &:hover {
       color: var(--accent);
@@ -282,7 +328,7 @@ h1 {
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--text);
       opacity: 0.8;
-      transition: all 0.3s ease;
+      transition: padding-left 0.2s ease, color 0.2s ease;
       cursor: default;
       
       &:last-child {
@@ -290,10 +336,128 @@ h1 {
       }
 
       &:hover {
+        padding-left: 10px;
         color: var(--accent);
-        transform: translateX(15px);
       }
     }
+  }
+}
+
+.about-section {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center, 
+      rgba(16, 146, 79, 0.1), 
+      transparent 70%
+    );
+    animation: pulse 5s infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+.bio-section {
+  position: relative;
+  
+  .bio-text {
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--accent);
+      transition: width 0.5s ease;
+    }
+    
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.projects-section {
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      border-radius: 1rem;
+    }
+    
+    &:hover {
+      transform: translateY(-15px) rotate(1deg);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      
+      &::before {
+        opacity: 1;
+      }
+      
+      .project-link {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+      
+      .project-icon {
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
+    
+    &:active {
+      transform: scale(0.98);
+    }
+    
+    .project-icon {
+      font-size: 2rem;
+      transition: transform 0.3s ease;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    
+    .project-link {
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
 

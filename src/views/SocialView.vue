@@ -6,10 +6,16 @@
     </div>
 
     <div class="social-grid">
-      <div v-for="(platform, index) in platforms" 
-           :key="platform.name"
-           class="social-card"
-           :style="{ '--delay': `${index * 0.1}s`, '--color': platform.color }">
+      <div 
+        v-for="platform in platforms" 
+        :key="platform.name" 
+        class="social-card"
+        @click="openLink(platform.link)"
+        @keydown.enter="openLink(platform.link)"
+        tabindex="0"
+        role="button"
+        :aria-label="`Open ${platform.name} profile`"
+      >
         <div class="card-content">
           <div class="platform-icon">
           </div>
@@ -66,6 +72,10 @@ const platforms = [
     color: '#7289DA'
   }
 ]
+
+function openLink(link: string) {
+  window.open(link, '_blank')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -91,6 +101,23 @@ const platforms = [
     text-align: center;
     margin-bottom: 1rem;
     letter-spacing: -0.05em;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--accent);
+      transition: width 0.5s ease;
+    }
+    
+    &:hover::after {
+      width: 100%;
+    }
   }
 }
 
@@ -116,14 +143,43 @@ const platforms = [
     transition: all 0.3s ease;
     opacity: 0;
     animation: fadeInUp 0.6s ease forwards;
+    cursor: pointer;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      border-radius: 1rem;
+    }
     
     &:nth-child(1) { animation-delay: 0.3s; }
     &:nth-child(2) { animation-delay: 0.4s; }
     &:nth-child(3) { animation-delay: 0.5s; }
-
+    
     &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      &::before {
+        opacity: 1;
+      }
+      
+      transform: translateY(-10px) rotate(1deg);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      
+      .platform-link {
+        i {
+          transform: translateX(5px);
+        }
+      }
+    }
+    
+    &:active {
+      transform: scale(0.98);
     }
   }
 }
@@ -153,6 +209,23 @@ p {
   color: var(--text);
   text-decoration: none;
   transition: color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
   
   &:hover {
     color: var(--accent);
@@ -172,6 +245,24 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.1);
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards 0.6s;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at center, 
+      rgba(16, 146, 79, 0.1), 
+      transparent 70%
+    );
+    animation: pulse 5s infinite;
+    pointer-events: none;
+  }
 }
 
 .section-title {
@@ -198,6 +289,28 @@ p {
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg, 
+      transparent, 
+      rgba(255,255,255,0.2), 
+      transparent
+    );
+    transition: all 0.5s ease;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
   
   &:hover {
     transform: translateY(-2px);
@@ -206,6 +319,10 @@ p {
     i {
       transform: translateX(5px);
     }
+  }
+  
+  &:active {
+    transform: scale(0.95);
   }
   
   i {
@@ -224,9 +341,40 @@ p {
   }
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 768px) {
   .social-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
 </style>
