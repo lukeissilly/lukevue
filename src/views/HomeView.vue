@@ -8,7 +8,7 @@
             <div class="profile-glow"></div>
           </div>
         </div>
-        <h1 class="glitch" data-text="Luke">Luke</h1>
+        <h1>Luke</h1>
         <div class="subtitle">
           <span class="typing">World's Worst Developer</span>
         </div>
@@ -28,6 +28,9 @@
           <h2 class="section-title">Welcome to my website :)</h2>
           <p class="section-text">
             In short, my name is Luke and I like doing weird computer stuff.
+          </p>
+          <p class="section-text">
+            There's not much else to put here to have this cat gif
           </p>
           <div class="cat-container">
             <img class="cat-gif" src="https://i.ibb.co/fCVNrQj/aaaa.gif" alt="Skateboarding Cat">
@@ -60,6 +63,8 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 .home {
   height: 100%;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 .hero {
@@ -70,6 +75,8 @@ onUnmounted(() => {
   position: relative;
   overflow: hidden;
   padding-top: 4rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.2s;
   
   &::before {
     content: '';
@@ -160,40 +167,13 @@ onUnmounted(() => {
   animation: pulseGlow 4s ease-in-out infinite;
 }
 
-.glitch {
+h1 {
   font-size: 5rem;
   font-weight: 900;
   color: var(--text);
-  position: relative;
-  text-shadow: 0.05em 0 0 var(--accent), -0.025em -0.05em 0 rgba(255,0,0,0.75),
-               0.025em 0.05em 0 rgba(0,255,255,0.75);
-  animation: glitchText 0.5s infinite;
-  -webkit-background-clip: text;
-  background-clip: text;
-  
-  &::before,
-  &::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  &::before {
-    left: 2px;
-    text-shadow: -2px 0 var(--accent);
-    clip: rect(24px, 550px, 90px, 0);
-    animation: glitch-anim 3s infinite linear alternate-reverse;
-  }
-  
-  &::after {
-    left: -2px;
-    text-shadow: -2px 0 var(--accent);
-    clip: rect(85px, 550px, 140px, 0);
-    animation: glitch-anim 2s infinite linear alternate-reverse;
-  }
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: -0.05em;
 }
 
 .subtitle {
@@ -221,7 +201,7 @@ onUnmounted(() => {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 20rem;
+  bottom: 6rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -274,6 +254,8 @@ onUnmounted(() => {
   color: var(--text);
   opacity: 0.8;
   margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.3s;
 }
 
 .cat-container {
@@ -282,6 +264,9 @@ onUnmounted(() => {
   margin: 0 auto;
   border-radius: 1rem;
   overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.4s;
+  transition: all 0.3s ease;
   
   &::before {
     content: '';
@@ -294,12 +279,20 @@ onUnmounted(() => {
     opacity: 0.5;
     mix-blend-mode: overlay;
   }
+  
+  &:hover {
+    transform: scale(1.02);
+  }
 }
 
 .cat-gif {
   width: 100%;
   display: block;
   border-radius: 1rem;
+}
+
+.glitch {
+  display: none;
 }
 
 @keyframes rotate {
@@ -340,7 +333,7 @@ onUnmounted(() => {
 }
 
 @keyframes glitch-anim {
-  0% { clip: rect(14px, 9999px, 66px, 0); }
+  0% { clip: rect(24px, 9999px, 66px, 0); }
   5% { clip: rect(37px, 9999px, 29px, 0); }
   10% { clip: rect(85px, 9999px, 92px, 0); }
   15% { clip: rect(100px, 9999px, 23px, 0); }
@@ -514,7 +507,7 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
-  .glitch {
+  h1 {
     font-size: 3rem;
   }
   

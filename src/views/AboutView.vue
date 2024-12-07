@@ -1,6 +1,29 @@
 <template>
   <div class="about-container">
-    <h1 class="glitch" data-text="Projects">Projects</h1>
+    <section class="bio-section">
+      <h1>About Me</h1>
+      <div class="bio-content">
+        <div class="bio-text">
+          <p>
+            Hi, I'm Luke.
+          </p>
+          <p>
+            Ever since I was a kid, I've been weirdly obsessed with technology and computers as a whole, which has led me down a rabbit hole of learning about almost everything related to computers.
+          </p>
+        </div>
+        <div class="bio-skills">
+          <h2>Interests</h2>
+          <ul>
+            <li>Programming</li>
+            <li>Computer Hardware</li>
+            <li>Software Development</li>
+            <li>Film Making</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <h1>Projects</h1>
     <div class="projects-grid">
       <div v-for="(project, index) in projects" :key="index" class="project-card">
         <div class="card-content">
@@ -16,7 +39,7 @@
               GitHub <i class="pi pi-github"></i>
             </a>
             <a v-if="project.demo" :href="project.demo" target="_blank" rel="noopener" class="project-link">
-              Demo <i class="pi pi-external-link"></i>
+                Link <i class="pi pi-external-link"></i>
             </a>
           </div>
         </div>
@@ -28,72 +51,72 @@
 <script setup lang="ts">
 const projects = [
   {
-    title: 'Portfolio Website',
-    description: 'A modern, dynamic portfolio built with Vue 3 and TypeScript, featuring smooth animations and interactive elements.',
-    technologies: ['Vue 3', 'TypeScript', 'SCSS'],
-    github: 'https://github.com/yourusername/portfolio',
-    demo: 'https://yourwebsite.com'
+    title: 'Silly Fediverse Instance',
+    description: 'A silly fediverse instance ran on Sharkey',
+    technologies: ['Fediverse', 'Social Media'],
+    demo: 'https://imsilly.fyi'
   },
   {
-    title: 'Project Name',
-    description: 'Description of your amazing project goes here. Talk about what problems it solves and its impact.',
-    technologies: ['React', 'Node.js', 'MongoDB'],
-    github: 'https://github.com/yourusername/project',
-    demo: 'https://project-demo.com'
+    title: 'Cat Picture Website',
+    description: 'I decided to put all my cat images to good use',
+    technologies: ['Web Development', 'Fun Project'],
+    demo: 'https://cat.luke.tf'
   },
   {
-    title: 'Another Project',
-    description: 'Another fantastic project description. Highlight the key features and technologies used.',
-    technologies: ['Python', 'Django', 'PostgreSQL'],
-    github: 'https://github.com/yourusername/another-project'
+    title: 'AI Website Showcase',
+    description: 'AI is stinky',
+    technologies: ['AI', 'Web Development'],
+    demo: 'https://ai.luke.tf'
+  },
+  {
+    title: 'Shitty Pepsi Minecraft Mod',
+    description: 'This was when I learnt that Java is hard',
+    technologies: ['Minecraft', 'Modding'],
+    github: 'https://github.com/lukeisuh/Shitty-Pepsi-Mod'
+  },
+  {
+    title: 'Number Guessing Website',
+    description: 'A poorly made number guessing game.',
+    technologies: ['Web Development', 'Games'],
+    demo: 'https://number.luke.tf/'
+  },
+  {
+    title: 'Nothing Website',
+    description: 'A website about doing nothing.',
+    technologies: ['Web Development', 'Experimental'],
+    demo: 'https://nothing.luke.tf/'
   }
 ]
 </script>
 
 <style lang="scss" scoped>
-.about-container {
-  min-height: 100vh;
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.glitch {
-  font-size: 4rem;
+.about-container {
+  min-height: 100vh;
+  padding: 6rem 2rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+h1 {
+  font-size: 2.5rem;
   font-weight: 900;
-  color: var(--text);
-  position: relative;
+  color: var(--accent);
   text-align: center;
-  margin-bottom: 3rem;
-  text-shadow: 0.05em 0 0 var(--accent), 
-               -0.025em -0.05em 0 rgba(255,0,0,0.75),
-               0.025em 0.05em 0 rgba(0,255,255,0.75);
-  animation: glitch 500ms infinite;
-  
-  &::before,
-  &::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: var(--text);
-  }
-  
-  &::before {
-    left: 2px;
-    text-shadow: -2px 0 var(--accent);
-    clip: rect(24px, 550px, 90px, 0);
-    animation: glitch-anim 3s infinite linear alternate-reverse;
-  }
-  
-  &::after {
-    left: -2px;
-    text-shadow: -2px 0 var(--accent);
-    clip: rect(85px, 550px, 140px, 0);
-    animation: glitch-anim 2s infinite linear alternate-reverse;
-  }
+  margin-bottom: 2rem;
+  letter-spacing: -0.05em;
 }
 
 .projects-grid {
@@ -110,15 +133,20 @@ const projects = [
   overflow: hidden;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
   
+  &:nth-child(1) { animation-delay: 0.3s; }
+  &:nth-child(2) { animation-delay: 0.4s; }
+  &:nth-child(3) { animation-delay: 0.5s; }
+  &:nth-child(4) { animation-delay: 0.6s; }
+  &:nth-child(5) { animation-delay: 0.7s; }
+  &:nth-child(6) { animation-delay: 0.8s; }
+  &:nth-child(7) { animation-delay: 0.9s; }
+
   &:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--accent);
-    
-    .project-link {
-      color: var(--accent);
-    }
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   }
 }
 
@@ -163,105 +191,115 @@ const projects = [
 .project-links {
   display: flex;
   gap: 1rem;
+  a {
+    transition: all 0.3s ease;
+    
+    &:hover {
+      color: var(--accent);
+      transform: translateX(5px);
+    }
+  }
 }
 
-.project-link {
-  color: var(--text);
-  text-decoration: none;
+.bio-section {
+  margin-bottom: 4rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.2s;
+}
+
+.bio-content {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-  opacity: 0.8;
+  gap: 2rem;
+  align-items: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.bio-text {
+  flex: 2;
   
-  &:hover {
-    opacity: 1;
+  p:first-child {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: var(--accent);
+    letter-spacing: -0.05em;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--accent);
+      opacity: 0.7;
+    }
   }
-  
-  i {
-    font-size: 1rem;
+
+  p:last-child {
+    position: relative;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text);
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+.bio-skills {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
-@keyframes glitch-anim {
-  0% {
-    clip: rect(44px, 9999px, 99px, 0);
+  h2 {
+    margin-bottom: 1rem;
+    color: var(--accent);
+    font-size: 1.2rem;
   }
-  20% {
-    clip: rect(12px, 9999px, 59px, 0);
-  }
-  40% {
-    clip: rect(63px, 9999px, 92px, 0);
-  }
-  60% {
-    clip: rect(23px, 9999px, 78px, 0);
-  }
-  80% {
-    clip: rect(88px, 9999px, 44px, 0);
-  }
-  100% {
-    clip: rect(32px, 9999px, 67px, 0);
-  }
-}
 
-@keyframes glitch {
-  0% {
-    text-shadow: 0.05em 0 0 var(--accent), 
-                -0.025em -0.05em 0 rgba(255,0,0,0.75),
-                0.025em 0.05em 0 rgba(0,255,255,0.75);
-  }
-  14% {
-    text-shadow: 0.05em 0 0 var(--accent), 
-                -0.025em -0.05em 0 rgba(255,0,0,0.75),
-                0.025em 0.05em 0 rgba(0,255,255,0.75);
-  }
-  15% {
-    text-shadow: -0.05em -0.025em 0 var(--accent),
-                0.025em 0.025em 0 rgba(255,0,0,0.75),
-                -0.05em -0.05em 0 rgba(0,255,255,0.75);
-  }
-  49% {
-    text-shadow: -0.05em -0.025em 0 var(--accent),
-                0.025em 0.025em 0 rgba(255,0,0,0.75),
-                -0.05em -0.05em 0 rgba(0,255,255,0.75);
-  }
-  50% {
-    text-shadow: 0.025em 0.05em 0 var(--accent),
-                0.05em 0 0 rgba(255,0,0,0.75),
-                0 -0.05em 0 rgba(0,255,255,0.75);
-  }
-  99% {
-    text-shadow: 0.025em 0.05em 0 var(--accent),
-                0.05em 0 0 rgba(255,0,0,0.75),
-                0 -0.05em 0 rgba(0,255,255,0.75);
-  }
-  100% {
-    text-shadow: -0.025em 0 0 var(--accent),
-                -0.025em -0.025em 0 rgba(255,0,0,0.75),
-                -0.025em -0.05em 0 rgba(0,255,255,0.75);
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      opacity: 0.8;
+      transition: all 0.3s ease;
+      cursor: default;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        color: var(--accent);
+        transform: translateX(15px);
+      }
+    }
   }
 }
 
 @media (max-width: 768px) {
   .about-container {
     padding: 2rem 1rem;
-  }
-  
-  .glitch {
-    font-size: 3rem;
-    margin-bottom: 2rem;
   }
   
   .projects-grid {
