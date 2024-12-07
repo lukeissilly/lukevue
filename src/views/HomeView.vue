@@ -1,4 +1,6 @@
 <template>
+   <link rel="icon" type="image/x-icon" href="pfp.ico">
+   <title> luke.tf </title>
   <div class="home">
     <div class="hero">
       <div class="hero-content">

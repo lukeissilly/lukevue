@@ -1,4 +1,6 @@
 <template>
+   <link rel="icon" type="image/x-icon" href="pfp.ico">
+   <title> luke.tf </title>
   <div class="about-container">
     <section class="bio-section">
       <h1>About Me</h1>
