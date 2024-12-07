@@ -20,7 +20,8 @@
 :root {
   --background: #000000;
   --text: #ffffff;
-  --accent: #00ff9d;
+  --accent: #10924f;  /* Bright neon green */
+  --secondary: #e6e3a2;  /* Electric green */
 }
 
 * {

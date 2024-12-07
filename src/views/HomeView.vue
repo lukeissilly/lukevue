@@ -4,7 +4,7 @@
       <div class="hero-content">
         <div class="profile-container">
           <div class="profile-wrapper">
-            <img class="profile-image" src="https://i.ibb.co/0XBwd2H/pfp.gif" alt="Luke">
+            <img class="profile-image" src="@/assets/images/pfp.webp" alt="Profile">
             <div class="profile-glow"></div>
           </div>
         </div>
@@ -45,9 +45,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const showScrollIndicator = ref(true)
 
 const handleScroll = () => {
-  if (window.scrollY > 50) {
-    showScrollIndicator.value = false
-  }
+  showScrollIndicator.value = window.scrollY <= 50
 }
 
 onMounted(() => {
@@ -87,7 +85,12 @@ onUnmounted(() => {
 }
 
 .hero-content {
-  text-align: center;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
   padding: 2rem;
   animation: fadeInUp 1s ease-out;
@@ -101,29 +104,17 @@ onUnmounted(() => {
 
 .profile-wrapper {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   margin: 0 auto;
   border-radius: 50%;
-  overflow: visible;
+  overflow: hidden;
   transform-style: preserve-3d;
   animation: float 6s ease-in-out infinite;
+  background: linear-gradient(135deg, #000000 0%, #000000 50%, #000000 100%);
+  box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
   
   &::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border-radius: 50%;
-    background: var(--accent);
-    opacity: 0.8;
-    z-index: 1;
-    animation: rotateBorder 8s linear infinite;
-  }
-
-  &::after {
     content: '';
     position: absolute;
     top: -2px;
@@ -131,8 +122,10 @@ onUnmounted(() => {
     right: -2px;
     bottom: -2px;
     border-radius: 50%;
-    background: var(--background);
-    z-index: 2;
+    background: linear-gradient(45deg, var(--accent), var(--secondary));
+    opacity: 0.6;
+    z-index: 1;
+    animation: rotateBorder 8s linear infinite;
   }
 }
 
@@ -144,6 +137,8 @@ onUnmounted(() => {
   border-radius: 50%;
   z-index: 3;
   transition: transform 0.3s ease;
+  background: transparent;
+  mix-blend-mode: normal;
   
   &:hover {
     transform: scale(1.05);
@@ -155,12 +150,12 @@ onUnmounted(() => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 180px;
-  height: 180px;
-  background: var(--accent);
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  filter: blur(20px);
-  opacity: 0.2;
+  background: radial-gradient(circle, var(--accent) 0%, var(--secondary) 100%);
+  filter: blur(25px);
+  opacity: 0.15;
   z-index: 0;
   animation: pulseGlow 4s ease-in-out infinite;
 }
@@ -225,29 +220,31 @@ onUnmounted(() => {
 }
 
 .scroll-indicator {
-  position: fixed;
-  bottom: 2rem;
+  position: absolute;
+  bottom: 20rem;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
 }
 
 .mouse {
   width: 26px;
   height: 40px;
   border: 2px solid var(--accent);
-  border-radius: 20px;
+  border-radius: 14px;
   position: relative;
 }
 
 .wheel {
+  position: absolute;
   width: 2px;
   height: 8px;
   background: var(--accent);
-  position: absolute;
-  top: 6px;
+  top: 1px;
   left: 50%;
   transform: translateX(-50%);
-  animation: scroll 2s infinite;
+  animation: scroll 3s infinite;
+  opacity: 0.8;
 }
 
 .content {
@@ -389,8 +386,14 @@ onUnmounted(() => {
 }
 
 @keyframes scroll {
-  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
-  100% { opacity: 0; transform: translateX(-50%) translateY(15px); }
+  0% {
+    opacity: 0.8;
+    transform: translateX(-50%) translateY(2px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
 }
 
 @keyframes fadeInUp {
@@ -435,19 +438,19 @@ onUnmounted(() => {
 
 @keyframes pulseGlow {
   0% {
-    opacity: 0.2;
+    opacity: 0.15;
     transform: translate(-50%, -50%) scale(1);
-    filter: blur(20px);
-  }
-  50% {
-    opacity: 0.3;
-    transform: translate(-50%, -50%) scale(1.2);
     filter: blur(25px);
   }
-  100% {
+  50% {
     opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1.1);
+    filter: blur(30px);
+  }
+  100% {
+    opacity: 0.15;
     transform: translate(-50%, -50%) scale(1);
-    filter: blur(20px);
+    filter: blur(25px);
   }
 }
 
